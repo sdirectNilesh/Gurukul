@@ -1,0 +1,43 @@
+
+    <nz-table>
+      <thead>
+        <tr class="add-user-row">
+          <th>
+            <button nzType="danger" nz-button nz-dropdown [nzDropdownMenu]="menu">
+              <span class="plus" nz-icon nzType="plus" nzTheme="outline"></span>
+              Add User
+              <span nz-icon nzType="caret-down" nzTheme="outline"></span>
+            </button>
+            <nz-dropdown-menu #menu="nzDropdownMenu">
+              <ul nz-menu>
+                <li nz-menu-item nzMatchRouter>
+                  <a routerLink="/add-student">Student</a>
+                </li>
+                <li nz-menu-item>
+                  <a>Parent</a>
+                </li>
+              </ul>
+            </nz-dropdown-menu>
+          </th>
+        </tr>
+        <tr>
+          <th>Sr No.</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let list of users; let i = index">
+          <td>{{i+1}}</td>
+          <td>{{list.userName}}</td>
+          <td>{{list.userEmail}}</td>
+          <td>
+            <div *ngIf="list.isDeletedAt===false; else elseBlock"> <nz-switch [ngModel]="false"></nz-switch></div>
+            <ng-template #elseBlock><nz-switch [ngModel]="true"></nz-switch></ng-template>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+
+ 

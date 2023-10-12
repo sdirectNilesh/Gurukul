@@ -1,0 +1,25 @@
+[nz-button] {
+    margin-right: 8px;
+    margin-bottom: 12px;
+    height: 35px;
+    width: 120px;
+  }
+
+  .plus{
+    margin-right: 6px;
+  }
+
+  .add-user-row{
+    width:100%;
+  }
+  nz-select {
+    margin-right: 8px;
+    width: 120px;
+  }
+/* 
+ nz-table {
+  position: relative;
+  width:80%;
+  margin-left: 20%;
+  margin-top: 5%;
+ } */

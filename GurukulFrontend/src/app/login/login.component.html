@@ -1,0 +1,50 @@
+<div class="login-container">
+    <div class="row authPage">
+      <div class="col-lg-6 authImage d-none d-lg-block"></div>
+      <img class="gurukullogo" src="http://localhost:36319/assets/img/logo-tutoring.svg" alt="">
+      <div class="col-lg-6 centerMid">
+        <div class="authContent">
+          <h1 class="authTitle text-center">Login</h1>
+        </div>
+        <div>
+          <form class="form" action="" [formGroup]="loginForm" novalidate (submit)="onSubmit()" >
+            <div class="row">
+              <div class="authIcon">
+                <button class="select-role" nz-button nzType="default" (click)="studentRole()" name="role" formControlName="role" >
+                  <h2>Student</h2>
+                </button>
+                <button class="select-role" nz-button nzType="default" (click)="parentRole()" name="role" formControlName="role">
+                  <h2>Parent</h2>
+                </button>
+                <button class="select-role" nz-button nzType="default" (click)="tutorRole()" name="role" formControlName="role">
+                  <h2>Tutor</h2>
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="inputField">
+                  <!-- <label for="userEmail">Email <sup style="color: red">*</sup></label> -->
+                  <input type="email" class="form-control" name="userEmail" formControlName="userEmail" required
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Enter email id" id="userEmail" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="inputField">
+                  <!-- <label for="password">Password<sup style="color: red">*</sup></label> -->
+                  <input type="password" class="form-control" name="password" formControlName="password" required
+                     placeholder="Enter password" id="password" />
+                </div>
+              </div>
+            </div>
+            <button class="btn" type="submit" style="width: 90%; margin-left:5%; margin-top: 7%;">Login</button>
+            <p class="loginlink">Don't have an account?
+              <a routerLink="signup">Create New</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

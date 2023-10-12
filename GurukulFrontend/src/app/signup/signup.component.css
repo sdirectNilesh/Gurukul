@@ -1,0 +1,106 @@
+.signup-container {
+    display: flex;
+    max-width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  .gurkul-img{
+    margin-left: 5%;
+    margin-top: 3%;
+  }
+
+  .signup-form{
+    height: 100%;
+    width: 50%;
+  }
+
+  h2 {
+    text-align: center;
+  }
+  
+  .form{
+    align-items: center;
+    width: 80%;
+    margin-left: 55px;
+    margin-bottom: 10px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .authContent{
+    margin-left: 40%;
+  }
+
+  .gurukullogo{
+    margin-top: 2%;
+    margin-left: 35%;
+    width: 30%;
+  }
+
+  .select-role{
+    background-color: white;
+    margin: 2%;
+    width: 23%;
+    height: 90px;
+    border: ridge;
+    outline-color: blue;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .authIcon{
+    display: flex;
+    margin-left: 17%;
+    margin-bottom: 4%;
+  }
+
+  .authPage{
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    margin-left: 100px;
+    margin-top: 20px;
+    width: 100%;
+    height: 550px;
+  }
+  
+  .btn{
+    margin: 2%;
+    width: 40%;
+    margin-bottom: 4%;
+  }
+  .row{
+    margin-bottom: 4%;
+  }
+
+  .loginlink{
+    margin-left: 140px;
+  }
+
