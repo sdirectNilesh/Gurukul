@@ -23,7 +23,9 @@ import { AddStudentComponent } from './add-student-component/add-student-compone
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
 import { NzFormModule } from 'ng-zorro-antd/form';
-import { JwtModule } from '@auth0/angular-jwt';
+// import { JwtModule } from '@auth0/angular-jwt';
+import {HomeComponent} from './HomePage/home/home.component'
+// import { NgZorroAntdModule} from 'ng-zorro-antd';
 
 registerLocaleData(en);
 
@@ -36,7 +38,8 @@ registerLocaleData(en);
     UserlistComponent,
     AddStudentComponent,
     LayoutComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     NzIconModule,
@@ -52,7 +55,8 @@ registerLocaleData(en);
     IconsProviderModule,
     NzLayoutModule,
     NzMenuModule,
-    NzFormModule
+    NzFormModule,
+    
   ],
   providers: [AuthService, { provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

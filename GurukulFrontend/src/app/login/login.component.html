@@ -1,4 +1,4 @@
-<div class="login-container">
+<!-- <div class="login-container">
     <div class="row authPage">
       <div class="col-lg-6 authImage d-none d-lg-block"></div>
       <img class="gurukullogo" src="http://localhost:36319/assets/img/logo-tutoring.svg" alt="">
@@ -24,7 +24,6 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="inputField">
-                  <!-- <label for="userEmail">Email <sup style="color: red">*</sup></label> -->
                   <input type="email" class="form-control" name="userEmail" formControlName="userEmail" required
                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Enter email id" id="userEmail" />
                 </div>
@@ -33,7 +32,6 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="inputField">
-                  <!-- <label for="password">Password<sup style="color: red">*</sup></label> -->
                   <input type="password" class="form-control" name="password" formControlName="password" required
                      placeholder="Enter password" id="password" />
                 </div>
@@ -47,4 +45,41 @@
         </div>
       </div>
     </div>
+  </div> -->
+
+
+<div class="container">
+  <!--Data or Content-->
+  <div class="box-1">
+    <div class="content-holder">
+      <h2>Hello!</h2>
+
+      <button class="button-1" onclick="signup()">Sign up</button>
+      <button class="button-2" onclick="login()">Login</button>
+    </div>
+  </div>
+
+  <!--Forms-->
+  <div class="box-2">
+    <div class="login-form-container">
+      <h1>Login Form</h1>
+      <input type="text" placeholder="Username" class="input-field">
+      <br><br>
+      <input type="password" placeholder="Password" class="input-field">
+      <br><br>
+      <button class="login-button" type="button">Login</button>
+    </div>
+
+    <!--Create Container for Signup form-->
+    <div class="signup-form-container">
+      <h1>Sign Up Form</h1>
+      <input type="text" placeholder="Username" class="input-field">
+      <br><br>
+      <input type="email" placeholder="Email" class="input-field">
+      <br><br>
+      <input type="password" placeholder="Password" class="input-field">
+      <br><br>
+      <button class="signup-button" type="button">Sign Up</button>
+    </div>
+
   </div>

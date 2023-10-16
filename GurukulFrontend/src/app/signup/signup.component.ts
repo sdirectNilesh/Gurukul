@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Import necessary form-related modules
-import { HttpClient } from '@angular/common/http';
-import { ApiService } from '../service/api.service';
-import { Router } from '@angular/router';
+// import { HttpClient } from '@angular/common/http';
+// import { ApiService } from '../service/api.service';
+// import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -10,71 +10,40 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
-  signupForm: any = FormGroup;
-  isSubmitting = false;
+  validateForm: FormGroup;
 
-  constructor(
-    private fb: FormBuilder, 
-    private http: HttpClient,
-    private router: Router,
-    private apiService: ApiService) {
-    this.signupForm = this.fb.group({
-      userName: ['', [Validators.required]],
-      userEmail: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
-      role: ['', [Validators.required]]
+  constructor(private fb: FormBuilder) {
+    this.validateForm = this.fb.group({
+      username: [null, [Validators.required]],
+      email: [null, [Validators.email, Validators.required]],
+      password: [null, [Validators.required, Validators.minLength(6)]],
+      confirmPassword: [null, [Validators.required, this.confirmationValidator]],
     });
   }
-  // Convenience getters to access form controls in the template
-  get userName() { return this.signupForm.get('userName'); }
-  get userEmail() { return this.signupForm.get('userEmail'); }
-  get password() { return this.signupForm.get('password'); }
- 
+  
+  submitForm(): void {
+    for (const i in this.validateForm.controls) {
+      if (this.validateForm.controls.hasOwnProperty(i)) {
+        this.validateForm.controls[i].markAsDirty();
+        this.validateForm.controls[i].updateValueAndValidity();
+      }
+    }
 
+    if (this.validateForm.valid) {
+      // Perform signup logic here
+      console.log('Form submitted:', this.validateForm.value);
+    }
+  }
 
-  studentRole() {
-    this.signupForm.get("role").setValue('1')
-    console.log("role: ", this.signupForm.get("role").value);
-  }
-  parentRole() {
-    this.signupForm.get("role").setValue('2')
-    console.log("role: ", this.signupForm.get("role").value);
-  }
-  tutorRole() {
-    this.signupForm.get("role").setValue('3')
-    console.log("role: ", this.signupForm.get("role").value);
-  }
-  onSubmit() {
-    // if (this.signupForm.valid && !this.isSubmitting) {
-      // Set the isSubmitting flag to prevent multiple submissions
-      // this.isSubmitting = true;
-
-      // Extract user data from the form
-      const userData = {
-        userName: this.signupForm.get("userName").value,
-        userEmail: this.signupForm.get("userEmail").value,
-        password: this.signupForm.get("password").value,
-        role: this.signupForm.get("role").value
-      };
-
-      console.log("sssss",userData)
-      // Simulate an HTTP POST request (replace with actual API call)
-      this.apiService.UserSignup(userData).subscribe(
-        (res : any) => {
-          console.log('Signup successful:', res);
-          if(res.status){
-            this.router.navigate(['']);
-          }
-        // Reset the flag
-        },
-        (error) => {
-          // Handle error response
-          console.error('Signup error:', error);
-          this.isSubmitting = false; // Reset the flag
-        }
-      );
-    // }
-  }
+  confirmationValidator = (control: { value: string; }): { [key: string]: boolean } => {
+    if (!control.value) {
+      return { required: true };
+    } else if (control.value !== this.validateForm.controls['password'].value) {
+    // } else if (control.value !== this.validateForm.controls.password.value) {
+      return { confirm: true, error: true };
+    }
+    return {};
+  };
 }
 
 

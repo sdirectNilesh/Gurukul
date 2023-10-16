@@ -1,61 +1,33 @@
-<div class="signup-container">
-  <div class="gurkul-img">
-    <img src="https://play-lh.googleusercontent.com/QoTdbSppKnih8stUmYbwx5nTFOPaMAn0yHcRCvhXK-Pe_ek20VBZaRpmSdvQS3GK1zc"
-      alt="Gurkul">
-  </div>
-  <div class="row authPage">
-    <div class="col-lg-6 authImage d-none d-lg-block"></div>
-    <img class="gurukullogo" src="http://localhost:36319/assets/img/logo-tutoring.svg" alt="">
-    <div class="col-lg-6 centerMid">
-      <div class="authContent">
-        <h1 class="authTitle text-center">Signup </h1>
-      </div>
-      <div>
-        <form class="form" action="" [formGroup]="signupForm" novalidate (submit)="onSubmit()" >
-          <div class="row">
-            <div class="authIcon">
-              <button class="select-role" nz-button nzType="default" (click)="studentRole()" name="role" formControlName="role" >
-                <h2>Student</h2>
-              </button>
-              <button class="select-role" nz-button nzType="default" (click)="parentRole()" name="role" formControlName="role">
-                <h2>Parent</h2>
-              </button>
-              <button class="select-role" nz-button nzType="default" (click)="tutorRole()" name="role" formControlName="role">
-                <h2>Tutor</h2>
-              </button>
-            </div>
-            <div class="col-md-6">
-              <div class="inputField">
-                <!-- <label for="userName">Name<sup style="color: red">*</sup></label> -->
-                <input type="text" class="form-control" name="userName" formControlName="userName" required
-                  placeholder="Enter name" id="userName" pattern="[a-zA-Z]+"  />
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="inputField">
-                <!-- <label for="userEmail">Email <sup style="color: red">*</sup></label> -->
-                <input type="email" class="form-control" name="userEmail" formControlName="userEmail" required
-                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Enter email id" id="userEmail" />
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="inputField">
-                <!-- <label for="password">Password<sup style="color: red">*</sup></label> -->
-                <input type="password" class="form-control" name="password" formControlName="password" required
-                   placeholder="Enter password" id="password" />
-              </div>
-            </div>
-          </div>
-          <button class="btn" type="submit" style="width: 90%; margin-left:5%; margin-top: 7%;">Register</button>
-          <p class="loginlink">Already have an account?
-            <a routerLink="">Login</a>
-          </p>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
+<!-- signup.component.html -->
+
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()" nzLayout="vertical">
+  <nz-form-item>
+    <nz-form-control nzErrorTip="Please input your username!">
+      <input nz-input formControlName="username" placeholder="Username" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control nzErrorTip="Please input your email!">
+      <input nz-input formControlName="email" placeholder="Email" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control nzErrorTip="Please input your password!">
+      <input nz-input type="password" formControlName="password" placeholder="Password" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control nzErrorTip="Passwords do not match!">
+      <input nz-input type="password" formControlName="confirmPassword" placeholder="Confirm Password" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control>
+      <button nz-button nzType="primary" [disabled]="!validateForm.valid">Sign Up</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>
